@@ -1,39 +1,40 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const path = require("path");
-const dbConfig = require("./config/db");
-
-const accountRoutes = require("./routes/account");
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const config = require('./config/db');
+const account = require('./routes/account');
 
 const app = express();
 
-const PORT = 3000;
+const port = 3000;
 
-// подрубаем CORS-ы
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
 app.use(cors());
-// подрубаем bodyParser для парсинга тел запросов в json
+
 app.use(bodyParser.json());
 
-mongoose.connect(dbConfig.db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-mongoose.connection.on("connected", () => {
-  console.log("Successful connection to the database");
-});
-mongoose.connection.on("error", (err) => {
-  console.log("Not successful connection to the database" + err);
+mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connection.on('connected', () => {
+    console.log("Successful connection to the database")
 });
 
-app.listen(PORT, () => {
-  console.log("The server was runningg on the port:" + PORT);
+mongoose.connection.on('error', (err) => {
+    console.log("Not successful connection to the database" + err)
 });
 
-app.get("/", (req, res) => {
-  res.send("Home page");
+app.listen(port, () => {
+    console.log("The server was running on the port:" + port)
 });
 
-app.use("/account", accountRoutes);
+app.get('/', (req, res) => {
+    res.send("Home page")
+});
+
+app.use('/account', account);
