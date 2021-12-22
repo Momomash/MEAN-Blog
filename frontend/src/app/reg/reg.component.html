@@ -1,1 +1,10 @@
-<p>reg works!</p>
+<div class="text-center container py-5" cz-shortcut-listen="true">
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+    <input type="text" formControlName="name" placeholder="Name" class="form-control mb-3" />
+    <input type="text" formControlName="login" placeholder="Login" required class="form-control mb-3" />
+    <input type="email" formControlName="email" placeholder="Email address" required class="form-control mb-3" />
+    <input type="password" formControlName="password" placeholder="Password" required class="form-control mb-3" />
+    <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!regForm.valid">Sign up</button>
+  </form>
+</div>

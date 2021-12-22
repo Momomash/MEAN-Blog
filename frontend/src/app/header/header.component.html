@@ -1,5 +1,5 @@
 <header
-  class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3 mb-4 border-bottom"
+  class="header d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3 border-bottom"
 >
   <a
     href="/"
@@ -8,12 +8,25 @@
     Blog
   </a>
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    <li><a [routerLink]="['/']" class="nav-link px-2 link-secondary">Home</a></li>
-    <li><a [routerLink]="['/dashboard']" class="nav-link px-2 link-dark">Dashboard</a></li>
+    <li>
+      <a [routerLink]="['/']" class="nav-link px-2 link-secondary">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="['/dashboard']" class="nav-link px-2 link-dark"
+        >Dashboard</a
+      >
+    </li>
   </ul>
 
   <div class="col-md-3 text-end">
-    <a type="button" class="btn btn-outline-primary me-2" [routerLink]="['/auth']">Sign in</a>
-    <a type="button" class="btn btn-outline-primary" [routerLink]="['/reg']">Sign up</a>
+    <a
+      type="button"
+      class="btn btn-outline-primary me-2"
+      [routerLink]="['/auth']"
+      >Sign in</a
+    >
+    <a type="button" class="btn btn-outline-primary" [routerLink]="['/reg']"
+      >Sign up</a
+    >
   </div>
 </header>
