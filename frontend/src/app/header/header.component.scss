@@ -2,4 +2,14 @@
 
 .header{
   height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  .menu-link{
+    padding: 0 8px;
+  }
 }
