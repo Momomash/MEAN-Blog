@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+import VALIDATE_MESSAGES from '../../utils/enums/validateMessages';
 
 @Component({
   selector: 'app-reg',
@@ -15,7 +16,16 @@ export class RegComponent {
   });
 
   get controls() {
-    return this.regForm.controls as { [key: string]: AbstractControl; };
+    return this.regForm.controls as { [key: string]: AbstractControl };
+  }
+
+  get errors(): { [key: string]: string } {
+    return {
+      name: !this.controls['name'].valid ? VALIDATE_MESSAGES.REQUIRED : '',
+      login: !this.controls['login'].valid ? VALIDATE_MESSAGES.REQUIRED : '',
+      email: !this.controls['email'].valid ? VALIDATE_MESSAGES.REQUIRED : '',
+      password: !this.controls['password'].valid ? VALIDATE_MESSAGES.REQUIRED : '',
+    };
   }
 
   onSubmit() {

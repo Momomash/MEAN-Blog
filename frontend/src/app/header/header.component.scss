@@ -6,10 +6,20 @@
   justify-content: space-between;
   align-content: center;
   a{
-    color: white;
+    color: black;
     text-decoration: none;
+  }
+  .menu{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
   }
   .menu-link{
     padding: 0 8px;
+  }
+  .controls{
+    button:not(:last-child) {
+    margin-right: 8px;
+    }
   }
 }

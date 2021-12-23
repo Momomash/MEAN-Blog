@@ -1,11 +1,11 @@
-<mat-toolbar color="primary" class="header">
+<mat-toolbar class="header">
   <a [routerLink]="['/']"> Blog</a>
   <div class="menu">
     <a [routerLink]="['/']" class="menu-link">Home</a>
     <a [routerLink]="['/dashboard']" class="menu-link">Dashboard</a>
-  </div>
-  <div class="controls">
-    <button mat-button [routerLink]="['/auth']">Sign in</button>
-    <button mat-button [routerLink]="['/reg']">Sign up</button>
+    <div class="controls">
+      <button mat-raised-button color="accent" [routerLink]="['/auth']">Sign in</button>
+      <button mat-raised-button color="accent" [routerLink]="['/reg']">Sign up</button>
+    </div>
   </div>
 </mat-toolbar>

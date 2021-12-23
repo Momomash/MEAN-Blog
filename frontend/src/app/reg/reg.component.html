@@ -1,11 +1,29 @@
 <div class="text-center container py-5" cz-shortcut-listen="true">
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
     <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-    <input type="text" formControlName="name" placeholder="Name" class="form-control mb-3" />
-    <input type="text" formControlName="login" placeholder="Login" required class="form-control mb-3" />
-    <input type="email" formControlName="email" placeholder="Email address" required class="form-control mb-3" />
-    <input type="password" formControlName="password" placeholder="Password" required class="form-control mb-3" />
-    <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!regForm.valid">Sign up</button>
-    <button mat-raised-button color="primary">Primary</button>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="!controls['name'].valid">{{ errors['name'] }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" />
+      <mat-error *ngIf="!controls['login'].valid">{{ errors['login'] }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="!controls['email'].valid">{{ errors['email'] }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" />
+      <mat-error *ngIf="!controls['password'].valid">{{ errors['password'] }}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!regForm.valid" class="submit-button">Sign Up</button>
   </form>
 </div>
